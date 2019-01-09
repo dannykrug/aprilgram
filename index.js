@@ -8,7 +8,7 @@ import PhotoFeed from './src/components/PhotoFeed';
 
 const App = () => {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Header headerText={'Aprilgram'} />
       <PhotoFeed />
     </View>

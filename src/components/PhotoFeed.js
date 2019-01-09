@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, Image, View } from 'react-native';
+import { Image, ScrollView } from 'react-native';
+import PhotoDetail from './PhotoDetail'
 
 class PhotoFeed extends Component {
 
@@ -8,18 +9,21 @@ class PhotoFeed extends Component {
   componentWillMount() {
     fetch('http://localhost:3000/photos')
     .then(res => res.json())
-    .then(console.log);
+    .then(res => this.setState({ photos: res }));
+  }
+
+  renderPhotos() {
+    return this.state.photos.map(photo =>
+      <PhotoDetail key={photo.id} photo={photo} />
+    );
   }
 
   render() {
+    console.log(this.state);
     return (
-      <View>
-        <Text>Photos Go Here</Text>
-        <Image
-        style={styles.imageStyle}
-        source={{ uri: 'https://i.imgur.com/T3FGNqF.png' }}
-        />
-      </View>
+      <ScrollView>
+        {this.renderPhotos()}
+      </ScrollView>
     );
   }
 }
