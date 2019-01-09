@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, Image, View } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 const PhotoDetail = ({ photo }) => {
   console.log(photo.title);
@@ -17,6 +18,7 @@ const PhotoDetail = ({ photo }) => {
 
       <CardSection>
         <View style={styles.likesCaptionContentStyle}>
+          <Button>Like</Button>
           <Text>{photo.likes} likes</Text>
           <Text>{photo.caption}</Text>
         </View>
