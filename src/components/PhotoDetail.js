@@ -32,15 +32,20 @@ const styles = {
 
 class PhotoDetail extends Component {
 
-  render() {
-    let likes = this.props.photo.likes;
+  state = { ...this.props.photo }
 
+
+  render() {
     const addLike = () => {
-      likes += 1;
-      console.log(likes);
+      let newLikes = this.props.photo.likes;
+      newLikes = (this.props.photo.likes += 1);
+      this.setState({
+        likes: newLikes
+      });
     };
 
-    console.log(this.props);
+  console.log(this.state);
+
   return (
     <Card>
       <CardSection>
@@ -54,7 +59,7 @@ class PhotoDetail extends Component {
       <CardSection>
         <View style={styles.likesCaptionContentStyle}>
           <Button onPress={addLike}>Like</Button>
-          <Text>{likes} likes</Text>
+          <Text>{this.props.photo.likes} likes</Text>
           <Text>{this.props.photo.caption}</Text>
         </View>
       </CardSection>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Image, ScrollView } from 'react-native';
-import PhotoDetail from './PhotoDetail'
+import { ScrollView } from 'react-native';
+import PhotoDetail from './PhotoDetail';
 
 class PhotoFeed extends Component {
 
