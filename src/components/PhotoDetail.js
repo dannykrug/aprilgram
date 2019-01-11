@@ -57,8 +57,11 @@ class PhotoDetail extends Component {
       </CardSection>
 
       <CardSection>
+        <Button onPress={addLike}>Like</Button>
+      </CardSection>
+
+      <CardSection>
         <View style={styles.likesCaptionContentStyle}>
-          <Button onPress={addLike}>Like</Button>
           <Text>{this.props.photo.likes} likes</Text>
           <Text>{this.props.photo.caption}</Text>
         </View>
